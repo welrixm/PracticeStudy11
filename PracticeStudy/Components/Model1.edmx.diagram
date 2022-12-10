@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="bb5ec03b6615412b90bf13b23cb07473" Name="Diagram1">
+        <EntityTypeShape EntityType="ProjectEndModel.DocumentByProduct" Width="1.5" PointX="9.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectEndModel.ExecutionStage" Width="1.5" PointX="3" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectEndModel.Gender" Width="1.5" PointX="0.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectEndModel.ManufacturerCountry" Width="1.5" PointX="5.25" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectEndModel.Order" Width="1.5" PointX="5.25" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectEndModel.Product" Width="1.5" PointX="5.25" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectEndModel.ProductCountry" Width="1.5" PointX="7.5" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectEndModel.ProductOrder" Width="1.5" PointX="7.5" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectEndModel.ProductShipment" Width="1.5" PointX="12.25" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectEndModel.Provider" Width="1.5" PointX="7.75" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectEndModel.Role" Width="1.5" PointX="0.75" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectEndModel.Shipment" Width="1.5" PointX="10" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectEndModel.Unit" Width="1.5" PointX="3" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectEndModel.User" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="ProjectEndModel.FK_DocumentByProduct_ProductOrder" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectEndModel.FK_Order_ExecutionStage" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectEndModel.FK_User_Gender" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectEndModel.FK_ProductCountry_ManufacturerCountry1" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectEndModel.FK_Order_User" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectEndModel.FK_Order_User1" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectEndModel.FK_Order_User2" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectEndModel.FK_ProductOrder_Order" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectEndModel.FK_Product_Unit" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectEndModel.FK_ProductCountry_Product1" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectEndModel.FK_ProductOrder_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectEndModel.FK_ProductShipment_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectEndModel.FK_ProductShipment_Shipment" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectEndModel.FK_Shipment_Provider" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectEndModel.FK_User_Role" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
