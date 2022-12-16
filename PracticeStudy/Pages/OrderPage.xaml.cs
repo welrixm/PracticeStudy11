@@ -43,6 +43,10 @@ namespace PracticeStudy.Pages
             InitializeComponent();
         }
 
-        
+        //private void BtnEditOrder_Click(object sender, RoutedEventArgs e)
+        //{
+        //    var selOrder = (sender as Button).DataContext as Order;
+        //    Navigation.NextPage(new Navig("Редактирование заказа", new OrderEditPage(selOrder)));
+        //}
     }
 }

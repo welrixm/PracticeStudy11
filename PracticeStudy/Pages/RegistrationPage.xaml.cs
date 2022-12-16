@@ -80,11 +80,11 @@ namespace PracticeStudy.Pages
                                 MessageBox.Show("Добавьте хотя бы одну цифру");
                             else if (!IsAllUpper)
                                 MessageBox.Show("Добавьте одну прописную букву");
-                            //if (symbol && number && IsAllUpper)
-                            //{
+                            if (symbol && number && IsAllUpper)
+                            {
 
-                            //}
-                            MessageBox.Show("Пользователь успешно зарегестрирован!");
+                            }
+                          //  MessageBox.Show("Пользователь успешно зарегестрирован!");
                         }
                         else
                         {

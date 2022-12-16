@@ -127,10 +127,10 @@ namespace PracticeStudy.Pages
                 }
             }
                // ListProduct.ItemsSource = products.ToList();
-                if (CbCount.SelectedIndex > 0 && products.Count() > 0)
+                if (CbCount.SelectedIndex > 0 && prodL.Count() > 0)
                 {
                     int selCount = Convert.ToInt32((CbCount.SelectedItem as ComboBoxItem).Content);
-                    products = new ObservableCollection<Product>(Products.Skip(selCount * actualPage).Take(selCount));
+                    prodL = new ObservableCollection<Product>(Products.Skip(selCount * actualPage).Take(selCount));
                     if (products.Count() == 0)
                     {
                         actualPage--;
@@ -138,7 +138,7 @@ namespace PracticeStudy.Pages
                     }
                 }
                 
-                FoundCount.Text = products.Count().ToString() + " из ";
+                FoundCount.Text = prodL.Count().ToString() + " из ";
             }
             //ListProduct.ItemsSource = products.ToList();
             ListProduct.ItemsSource = prodL.ToList();
@@ -209,6 +209,7 @@ namespace PracticeStudy.Pages
             if(MessageBox.Show("Вы точно хотите удалить эту запись?", "Уведомление", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
                 selProduct.IsActive = false;
+                DBConnect.db.Product.Remove(selProduct);
                 MessageBox.Show("Запись удалена");
                 DBConnect.db.SaveChanges();
                 ListProduct.ItemsSource = DBConnect.db.Product.ToList();
@@ -218,6 +219,11 @@ namespace PracticeStudy.Pages
         private void DecBtn_Click(object sender, RoutedEventArgs e)
         {
             Navigation.NextPage(new Navig("Оформление заказа", new DecorationOrderPage()));
+        }
+
+        private void ShipBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Navigation.NextPage(new Navig("Поступление продуктов", new ShipmentPage()));
         }
     }
 }

@@ -38,7 +38,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="DateOrder" Type="date" />
           <Property Name="TotalCost" Type="decimal" Precision="18" Scale="0" />
           <Property Name="ExecutionStageId" Type="int" Nullable="false" />
@@ -71,7 +71,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ProductId" Type="int" Nullable="false" />
           <Property Name="OrderId" Type="int" Nullable="false" />
           <Property Name="Quantity" Type="int" />
@@ -727,7 +727,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="ProjectEndEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="ProjectEndEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="DocumentByProduct" EntityType="Self.DocumentByProduct" />
           <EntitySet Name="ExecutionStage" EntityType="Self.ExecutionStage" />
           <EntitySet Name="Gender" EntityType="Self.Gender" />
@@ -808,7 +808,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище ProjectEndModelContainer" CdmEntityContainer="ProjectEndEntities">
+        <EntityContainerMapping StorageEntityContainer="Хранилище ProjectEndModelContainer" CdmEntityContainer="ProjectEndEntities1">
           <EntitySetMapping Name="DocumentByProduct">
             <EntityTypeMapping TypeName="ProjectEndModel.DocumentByProduct">
               <MappingFragment StoreEntitySet="DocumentByProduct">

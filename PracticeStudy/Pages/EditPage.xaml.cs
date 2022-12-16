@@ -39,23 +39,23 @@ namespace PracticeStudy.Pages
             //CountryCbx.ItemsSource = DBConnect.db.ManufacturerCountry.ToList();
             //CountryCbx.DisplayMemberPath = "Name";
         }
-        //private void ClearCountryBtn_Click(object sender, RoutedEventArgs e)
-        //{
-            
-        //    if (CountryList.SelectedItems != null)
-        //    {
-        //        var itemCountry = CountryList.SelectedIndex + 1;
-        //       // manufacturercountryid = itemCountry;
-        //        var productCountry = DBConnect.db.ProductCountry.Where(x => x.ManufacturerCountryId == itemCountry && x.ProductId == product.Id).FirstOrDefault();
-        //        DBConnect.db.ProductCountry.Remove(productCountry);
-        //        // DBConnect.db.SaveChanges();
-        //        MessageBox.Show("Delete");
-        //    }
-        //    else
-        //    {
-        //        MessageBox.Show("Выберите страну");
-        //    }
-        //}
+        private void ClearCountryBtn_Click(object sender, RoutedEventArgs e)
+        {
+            int countryid = 0;
+            if (CountryList.SelectedItems != null)
+            {
+                var itemCountry = CountryList.SelectedIndex + 1;
+                countryid = itemCountry;
+                var productCountry = DBConnect.db.ProductCountry.Where(x => x.ManufacturerCountryId == itemCountry && x.ProductId == product.Id).FirstOrDefault();
+                DBConnect.db.ProductCountry.Remove(productCountry);
+                DBConnect.db.SaveChanges();
+                MessageBox.Show("Вы удалили страну");
+            }
+            else
+            {
+                MessageBox.Show("Выберите страну");
+            }
+        }
 
         private void AddCountryBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -68,7 +68,7 @@ namespace PracticeStudy.Pages
                     Product = product
                 };
                 DBConnect.db.ProductCountry.Add(productCountry);
-                // DBConnect.db.SaveChanges();
+                DBConnect.db.SaveChanges();
                 MessageBox.Show("Вы выбрали страну/страны");
             }
             else
@@ -80,6 +80,7 @@ namespace PracticeStudy.Pages
         {
             if(product.Id == 0)
             {
+                
                 DBConnect.db.Product.Add(product);
 
             }
@@ -102,24 +103,24 @@ namespace PracticeStudy.Pages
             }
         }
 
-        private void ClearCountryBtn_Click(object sender, RoutedEventArgs e)
-        {
-            if(CountryList.SelectedItem != null)
-            {
-                List<ManufacturerCountry> list = new List<ManufacturerCountry>();
-                foreach(var itemManufacturerCountry in CountryList.Items)
-                {
-                    if (itemManufacturerCountry != CountryList.SelectedItem)
-                        list.Add(itemManufacturerCountry as ManufacturerCountry);
-                }
-                CountryList.ItemsSource = list;
-                MessageBox.Show("Удалено");
-            }
-            else
-            {
-                MessageBox.Show("Выберите страну");
-            }
-        }
+        //private void ClearCountryBtn_Click(object sender, RoutedEventArgs e)
+        //{
+        //    if(CountryList.SelectedItem != null)
+        //    {
+        //        List<ManufacturerCountry> list = new List<ManufacturerCountry>();
+        //        foreach(var itemManufacturerCountry in CountryList.Items)
+        //        {
+        //            if (itemManufacturerCountry != CountryList.SelectedItem)
+        //                list.Remove(itemManufacturerCountry as ManufacturerCountry);
+        //        }
+        //        CountryList.ItemsSource = list;
+        //        MessageBox.Show("Удалено");
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show("Выберите страну");
+        //    }
+        //}
 
         //private void AddBtn_Click(object sender, RoutedEventArgs e)
         //{

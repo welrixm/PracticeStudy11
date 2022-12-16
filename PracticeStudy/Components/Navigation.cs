@@ -33,8 +33,8 @@ namespace PracticeStudy.Components
         private static void Update(Navig navig)
         {
             main.TitlePage.Text = navig.Title;
-            main.ExitBtn.Visibility = isAuth == true ? System.Windows.Visibility.Visible : System.Windows.Visibility.Collapsed;
-           main.BackBtn.Visibility = navigs.Count > 2 ? System.Windows.Visibility.Visible : System.Windows.Visibility.Collapsed;
+            //main.ExitBtn.Visibility = isAuth == true ? System.Windows.Visibility.Visible : System.Windows.Visibility.Collapsed;
+          // main.BackBtn.Visibility = navigs.Count > 2 ? System.Windows.Visibility.Visible : System.Windows.Visibility.Collapsed;
             main.FrameMain.Navigate(navig.Page);
         }
 

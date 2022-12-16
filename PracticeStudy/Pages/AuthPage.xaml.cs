@@ -53,6 +53,7 @@ namespace PracticeStudy.Pages
                         MessageBox.Show("Извините, такого пользователя не существует!");
                         TimeAuth += 1;
                         Properties.Settings.Default.TimeAuth = TimeAuth;
+                        return;
                     }
                     else
                     {

@@ -8,6 +8,6 @@ namespace PracticeStudy.Components
 {
     class DBConnect
     {
-        public static ProjectEndEntities db = new ProjectEndEntities();
+        public static ProjectEndEntities1 db = new ProjectEndEntities1();
     }
 }

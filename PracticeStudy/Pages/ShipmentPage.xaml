@@ -1,4 +1,4 @@
-﻿<Page x:Class="PracticeStudy.Pages.OrderPage"
+﻿<Page x:Class="PracticeStudy.Pages.ShipmentPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -7,10 +7,10 @@
       mc:Ignorable="d" 
       DataContext="{Binding RelativeSource={RelativeSource Self}}"
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="OrderPage">
+      Title="ShipmentPage">
 
     <Grid>
-        <ListView x:Name="ListOrder" d:ItemsSource="{d:SampleData ItemCount=4}" ItemsSource="{Binding Orders}">
+        <ListView x:Name="ListShipment" d:ItemsSource="{d:SampleData ItemCount=4}" ItemsSource="{Binding Shipments}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid>
@@ -25,18 +25,18 @@
                         </Grid.RowDefinitions>
                         <StackPanel>
                             <TextBlock Grid.Row="0" Text="{Binding Id}" FontWeight="Bold" Style="{StaticResource OrderBlock}"></TextBlock>
-                            <TextBlock Grid.Column="0" Grid.Row="0" Text="{Binding DateOrder}" Style="{StaticResource OrderBlock}"></TextBlock>
+                            <TextBlock Grid.Column="0" Grid.Row="0" Text="{Binding Date}" Style="{StaticResource OrderBlock}"></TextBlock>
                         </StackPanel>
-                        <StackPanel Grid.Row="1" Orientation="Vertical">
+                        <!--<StackPanel Grid.Row="1" Orientation="Vertical">
                             <TextBlock Style="{StaticResource OrderBlock}" Margin="5" >Этап обработки заказа:</TextBlock>
                             <TextBlock  Text="{Binding ExecutionStage.Name}" Style="{StaticResource OrderBlock}" Foreground="Green"></TextBlock>
                         </StackPanel>
-                      
+
                         <StackPanel Orientation="Vertical" Grid.Row="2" >
                             <TextBlock Text="{Binding User.LastName, StringFormat='{} Исполнитель: {0}'}" Style="{StaticResource OrderBlock2}"></TextBlock>
                             <TextBlock Text="{Binding User2.LastName, StringFormat='{} Заказчик: {0}'}" Style="{StaticResource OrderBlock2}"></TextBlock>
-                        </StackPanel>
-                        <ListBox Grid.Column="1" ItemsSource="{Binding ProductOrders}" Width="500">
+                        </StackPanel>-->
+                        <ListBox Grid.Column="1" ItemsSource="{Binding ProductShipments}" Width="500">
                             <ListBox.ItemsPanel>
                                 <ItemsPanelTemplate>
                                     <WrapPanel IsItemsHost="True"></WrapPanel>
@@ -58,21 +58,21 @@
                                                 <TextBlock Style="{StaticResource OrderBlock}">Цена:</TextBlock>
                                                 <TextBlock Text="{Binding Product.Cost}" Style="{StaticResource OrderBlock}"></TextBlock>
                                             </StackPanel>
-                                            
-                                           
+
+
                                         </StackPanel>
                                     </StackPanel>
-                                   
-                                    
+
+
                                 </DataTemplate>
                             </ListBox.ItemTemplate>
                         </ListBox>
                         <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
                             <TextBlock Text="{Binding TotalPrice, StringFormat='{} Общая сумма: {0:f} руб.'}" Style="{StaticResource OrderBlock3}"></TextBlock>
-                            <TextBlock Text="{Binding Quantity, StringFormat='{} Общее количество продуктов: {0:f}'}" Style="{StaticResource OrderBlock3}"></TextBlock>
-                            <!--<Button x:Name="BtnEditOrder" Style="{StaticResource Button}" Click="BtnEditOrder_Click"  Content="Редактировать"></Button>-->
+                            <!--<TextBlock Text="{Binding Quantity, StringFormat='{} Общее количество продуктов: {0:f}'}" Style="{StaticResource OrderBlock3}"></TextBlock>-->
+                            
                         </StackPanel>
-                        
+
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>

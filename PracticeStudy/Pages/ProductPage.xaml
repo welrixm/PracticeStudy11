@@ -101,7 +101,7 @@
                                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                                            
                                            
-                                            <ListBox ItemsSource="{Binding ProductCountry}" >
+                                            <ListBox ItemsSource="{Binding Path = ProductCountry}" >
                                             <ListBox.ItemsPanel>
                                                 <ItemsPanelTemplate>
                                                     <WrapPanel IsItemsHost="True"></WrapPanel>
@@ -110,7 +110,7 @@
                                             <ListBox.ItemTemplate>
                                                 <DataTemplate>
 
-                                                        <TextBlock Text="{Binding ManufacturerCountry.Name}" Background="{Binding Brush}"></TextBlock>
+                                                        <TextBlock Text="{Binding ManufacturerCountry.Name}" Background="{Binding brush}"></TextBlock>
 
                                                 </DataTemplate>
                                             </ListBox.ItemTemplate>
@@ -138,6 +138,7 @@
                         <Button x:Name="AddNewProductBtn" Style="{StaticResource Button}" Click="AddNewProductBtn_Click">Добавить</Button>
                         <Button x:Name="OrdersBtn" Style="{StaticResource Button}" Click="OrdersBtn_Click" Margin="10" Visibility="{Binding BtnVisible}">Заказы</Button>
                         <Button x:Name="DecBtn" Style="{StaticResource Button}" Click="DecBtn_Click"  Margin="10">Оформить заказы</Button>
+                        <Button x:Name="ShipBtn" Style="{StaticResource Button}" Click="ShipBtn_Click"  Margin="10">Поставки</Button>
                     </StackPanel>
                 </StackPanel>
 

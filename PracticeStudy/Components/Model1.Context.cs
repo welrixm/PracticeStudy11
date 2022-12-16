@@ -13,10 +13,10 @@ namespace PracticeStudy.Components
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class ProjectEndEntities : DbContext
+    public partial class ProjectEndEntities1 : DbContext
     {
-        public ProjectEndEntities()
-            : base("name=ProjectEndEntities")
+        public ProjectEndEntities1()
+            : base("name=ProjectEndEntities1")
         {
         }
     

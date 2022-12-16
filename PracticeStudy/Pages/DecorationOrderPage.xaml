@@ -11,7 +11,7 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="10*"></RowDefinition>
             <RowDefinition Height="1*"></RowDefinition>
         </Grid.RowDefinitions>
@@ -19,15 +19,17 @@
             <ColumnDefinition Width="5*"></ColumnDefinition>
             <ColumnDefinition Width="5*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <ListView Grid.Row="1" Margin="10" ItemsSource="{ Binding ProductsAdd}"  >
+
+
+        <ListView Grid.Row="1" Grid.Column="0" Margin="10" x:Name="ProductList" ItemsSource="{Binding Products}" >
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Border Padding="2" Width="auto"  BorderThickness="3" CornerRadius="10">
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="100"></ColumnDefinition>
-                                <ColumnDefinition Width="100"></ColumnDefinition>
-                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="150"></ColumnDefinition>
+                                <ColumnDefinition Width="300"></ColumnDefinition>
+                                <!--<ColumnDefinition Width="50"/>-->
                             </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="50"></RowDefinition>
@@ -38,35 +40,33 @@
                                 <TextBlock Text="{Binding Name}" FontSize="20"></TextBlock>
                             </StackPanel>
                             <StackPanel Grid.Column="0" Grid.Row="0" Grid.RowSpan="3">
-                                <Image Source="{Binding Photo}" Height="100" Width="70" Margin="10"/>
+                                <Image Source="{Binding MainImage}" Height="100" Width="70" Margin="10"/>
                             </StackPanel>
                             <StackPanel Grid.Column="1" Grid.Row="1">
                                 <TextBlock Text="{Binding Description}"></TextBlock>
-                                <TextBlock Text="{Binding Cost}"></TextBlock>
-                            </StackPanel>
-                            <StackPanel Grid.Column="1" Grid.Row="2">
-                                <StackPanel>
-                                    <TextBlock Text="{Binding Date}"/>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Cost}" ></TextBlock>
+                                    <TextBlock Text="рублей" Margin="5 0"></TextBlock>
                                 </StackPanel>
+                                
 
                             </StackPanel>
-
-
+                            
                         </Grid>
                     </Border>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
 
-        <ListView Grid.Row="1" Grid.Column="1" Margin="10" x:Name="ProductList" ItemsSource="{Binding Products}" >
+        <ListView Grid.Row="1" Margin="10" ItemsSource="{ Binding ProductsAdd}"  Grid.Column="1">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Border Padding="2" Width="auto"  BorderThickness="3" CornerRadius="10">
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="100"></ColumnDefinition>
-                                <ColumnDefinition Width="100"></ColumnDefinition>
-                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="150"></ColumnDefinition>
+                                <ColumnDefinition Width="300"></ColumnDefinition>
+                                <!--<ColumnDefinition Width="50"/>-->
                             </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="50"></RowDefinition>
@@ -77,32 +77,32 @@
                                 <TextBlock Text="{Binding Name}" FontSize="20"></TextBlock>
                             </StackPanel>
                             <StackPanel Grid.Column="0" Grid.Row="0" Grid.RowSpan="3">
-                                <Image Source="{Binding Photo}" Height="100" Width="70" Margin="10"/>
+                                <Image Source="{Binding MainImage}" Height="100" Width="70" Margin="10"/>
                             </StackPanel>
                             <StackPanel Grid.Column="1" Grid.Row="1">
                                 <TextBlock Text="{Binding Description}"></TextBlock>
-                                <TextBlock Text="{Binding Cost}"></TextBlock>
-                            </StackPanel>
-                            <StackPanel Grid.Column="1" Grid.Row="2">
-                                <StackPanel>
-                                    <TextBlock Text="{Binding Date}"/>
-
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Cost}"></TextBlock>
+                                    <TextBlock Text="рублей" Margin="5 0"></TextBlock>
                                 </StackPanel>
 
                             </StackPanel>
+                            
+
                         </Grid>
                     </Border>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-
+        <StackPanel Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Button Margin="10" x:Name="ButtonAddProductOrder" Click="ButtonAddProductOrder_Click" Style="{StaticResource Button}">Добавить продукт в заказ</Button>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Button Margin="10" x:Name="ButtonSave" Click="ButtonSave_Click" Style="{StaticResource Button}">Оформить заказ</Button>
+        </StackPanel>
         <StackPanel Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right">
-            <Button Margin="10" x:Name="ButtonAddProductOrder" Click="ButtonAddProductOrder_Click">Оформить продукт в заказ</Button>
+            <TextBox Margin="10" x:Name="CountTb" Style="{StaticResource TextBox}" Text="{Binding Quantity}"></TextBox>
         </StackPanel>
-        <StackPanel Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left">
-            <Button Margin="10" x:Name="ButtonSave" Click="ButtonSave_Click" >Оформить заказ</Button>
-        </StackPanel>
-
 
     </Grid>
 </Page>

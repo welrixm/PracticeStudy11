@@ -23,6 +23,13 @@ namespace PracticeStudy.Components
                 return this.ProductOrder.Sum(x => x.Quantity);
             }
         }
+        public int? Count
+        {
+            get
+            {
+                return this.ProductOrder.Sum(x => x.Quantity);
+            }
+        }
         public decimal? TotalPrice
         {
             get

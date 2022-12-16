@@ -37,8 +37,11 @@ namespace PracticeStudy.Pages
             set { SetValue(ProductsAddOrderProperty, value); }
         }
 
+        
         public static readonly DependencyProperty ProductsAddOrderProperty =
             DependencyProperty.Register("ProductsAdd", typeof(ObservableCollection<Product>), typeof(OrderPage));
+        
+
         public DecorationOrderPage()
         {
 
@@ -51,9 +54,9 @@ namespace PracticeStudy.Pages
 
         private void ButtonAddProductOrder_Click(object sender, RoutedEventArgs e)
         {
-            if (ProductList.SelectedItem == null)
-                return;
-
+            //if (ProductList.SelectedItem == null)
+            //    return;
+            
             Product product = ProductList.SelectedItem as Product;
 
             Products.Remove(product);
@@ -62,6 +65,7 @@ namespace PracticeStudy.Pages
 
         private void ButtonSave_Click(object sender, RoutedEventArgs e)
         {
+
             decimal totalCost = 0;
 
             foreach (var item in ProductsAdd)
@@ -70,27 +74,35 @@ namespace PracticeStudy.Pages
             Order order = new Order()
             {
                 UserId = 4,
-                User1Id = Navigation.AuhtUser.Id,
+                UserId1 = Navigation.AuthUser.Id,
                 ExecutionStageId = 1,
+                DateOrder = DateTime.Now,
 
                 TotalCost = (int?)totalCost
             };
 
             DBConnect.db.Order.Add(order);
+            DBConnect.db.SaveChanges();
 
+            //int count = 0;
             foreach (var item in ProductsAdd)
+                
+
             {
                 ProductOrder product = new ProductOrder()
                 {
+                     
                     OrderId = order.Id,
                     Product = item,
-                    Quantity = item.Cost
+                   Quantity = (int?)item.Quantity,
+                   // Quantity = (int?)count
                 };
 
                 DBConnect.db.ProductOrder.Add(product);
+                DBConnect.db.SaveChanges();
             }
-
             DBConnect.db.SaveChanges();
+
             Navigation.NextPage(new Navig("", new OrderPage()));
         }
     }
